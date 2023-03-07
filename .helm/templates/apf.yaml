@@ -1,4 +1,5 @@
 {{ range $namespace, $value := .Values.apf }}
+---
 apiVersion: flowcontrol.apiserver.k8s.io/v1beta2
 kind: FlowSchema
 metadata:
