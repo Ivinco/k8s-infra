@@ -1,0 +1,11 @@
+apiVersion: v2
+name: k8s-infra
+version: 1.0.0
+dependencies:
+- name: apf
+  version: ~1
+  repository: ""
+  condition: apf.enabled
+  export-values:
+  - parent: werf
+    child: werf
