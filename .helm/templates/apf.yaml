@@ -1,0 +1,46 @@
+{{ range $namespace, $value := .Values.apf }}
+apiVersion: flowcontrol.apiserver.k8s.io/v1beta2
+kind: FlowSchema
+metadata:
+  name: {{ $namespace }}-restrict-crawlers
+spec:
+  priorityLevelConfiguration:
+    name: {{ $namespace }}-restrict-crawler
+  distinguisherMethod:
+    type: ByNamespace
+  rules:
+  - resourceRules:
+    - apiGroups:
+      - ""
+      namespaces:
+      - {{ $namespace }}
+      resources:
+      - pods
+      - deployments
+      - statefulsets
+      verbs:
+      - list
+      - get
+      - create
+      - update
+    subjects:
+    - kind: ServiceAccount
+      serviceAccount:
+        name: {{ $namespace }}-crawler
+        namespace: {{ $namespace }}
+---
+apiVersion: flowcontrol.apiserver.k8s.io/v1beta2
+kind: PriorityLevelConfiguration
+metadata:
+  name: {{ $namespace }}-restrict-crawlers
+spec:
+  type: Limited
+  limited:
+    assuredConcurrencyShares: {{ $value.assuredConcurrencyShares }}
+    limitResponse:
+      queuing:
+        handSize: {{ $value.handSize }}
+        queueLengthLimit: {{ $value.queueLengthLimit }}
+        queues: {{ $value.queues }}
+      type: Queue
+{{ end }}

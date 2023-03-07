@@ -1,0 +1,6 @@
+apf:
+  test-apf:
+    assuredConcurrencyShares: 50
+    handSize: 8
+    queueLengthLimit: 50
+    queues: 64
