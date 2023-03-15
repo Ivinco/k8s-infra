@@ -10,7 +10,7 @@ apf:
     handSize: 8
     queueLengthLimit: 50
     queues: 64
-sg-boards-dev-crawlers:
+  sg-boards-dev-crawlers:
     assuredConcurrencyShares: 50
     handSize: 8
     queueLengthLimit: 50
