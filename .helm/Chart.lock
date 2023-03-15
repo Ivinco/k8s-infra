@@ -2,5 +2,11 @@ dependencies:
 - name: apf
   repository: ""
   version: ~1
-digest: sha256:0e297b7f1c9ee9777ec3b86f09da8f8ba7fe884fabca33164e2bc72eaeab98e9
-generated: "2023-03-07T22:02:13.719152+08:00"
+- name: rook-ceph
+  repository: https://charts.rook.io/release
+  version: v1.11.1
+- name: rook-ceph-cluster
+  repository: https://charts.rook.io/release
+  version: v1.11.1
+digest: sha256:57ae9b47ada890a41219d804736c9c22ded2ea4b28d69bd7fffa4e194aa0f517
+generated: "2023-03-15T18:00:19.24395+08:00"

@@ -9,3 +9,18 @@ dependencies:
   export-values:
   - parent: werf
     child: werf
+- name: rook-ceph
+  version: ~1
+  repository: "https://charts.rook.io/release"
+  condition: rook-ceph-operator.enabled
+  export-values:
+  - parent: werf
+    child: werf
+- name: rook-ceph-cluster
+  version: ~1
+  repository: "https://charts.rook.io/release"
+  condition: rook-ceph-cluster.enabled
+  export-values:
+  - parent: werf
+    child: werf
+
