@@ -1,6 +1,16 @@
 enabled: false
 apf:
-  test-apf:
+  sg-tencent-dev:
+    assuredConcurrencyShares: 50
+    handSize: 8
+    queueLengthLimit: 50
+    queues: 64
+  sg-tencent-prod:
+    assuredConcurrencyShares: 30
+    handSize: 8
+    queueLengthLimit: 50
+    queues: 64
+sg-boards-dev-crawlers:
     assuredConcurrencyShares: 50
     handSize: 8
     queueLengthLimit: 50
