@@ -9,3 +9,10 @@ dependencies:
   export-values:
   - parent: werf
     child: werf
+- name: admission-controller
+  version: ~1
+  repository: ""
+  condition: admission-controller.enabled
+  export-values:
+  - parent: werf
+    child: werf

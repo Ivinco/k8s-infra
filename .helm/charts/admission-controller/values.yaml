@@ -1,0 +1,8 @@
+enabled: false
+server:
+  resources:
+    requests:
+      cpu: "100m"
+      mem: "1024Mi"
+    limits:
+      mem: "1024Mi"
