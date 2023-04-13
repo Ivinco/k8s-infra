@@ -2,5 +2,8 @@ dependencies:
 - name: apf
   repository: ""
   version: ~1
-digest: sha256:0e297b7f1c9ee9777ec3b86f09da8f8ba7fe884fabca33164e2bc72eaeab98e9
-generated: "2023-03-07T22:02:13.719152+08:00"
+- name: admission-controller
+  repository: ""
+  version: ~1
+digest: sha256:ba5af42eed788db6ca8ae16ccdbfaa636c54f9228437902a5b3faed06da16cc2
+generated: "2023-04-13T16:22:52.132444+04:00"

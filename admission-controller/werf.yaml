@@ -1,5 +1,6 @@
+---
+project: admission-server
 configVersion: 1
-project: ivinco-k8s-infra
 cleanup:
   keepPolicies:
   - references:
@@ -19,7 +20,7 @@ cleanup:
 image: build
 from: golang:1.19-alpine
 git:
-- add: /admission-controller
+- add: /
   to: /app
   stageDependencies:
     install:
