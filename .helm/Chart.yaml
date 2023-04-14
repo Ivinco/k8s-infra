@@ -16,3 +16,10 @@ dependencies:
   export-values:
   - parent: werf
     child: werf
+- name: resource-quota
+  version: ~1
+  repository: ""
+  condition: resource-quota.enabled
+  export-values:
+  - parent: werf
+    child: werf

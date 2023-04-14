@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: default-quota
+  namespace: default
+spec:
+  hard:
+    count/deployment.apps: "0"
+    count/statefulsets.apps: "0"
+    count/replicasets.apps: "0"
+    count/daemonsets.apps: "0"
+    count/cronjobs.batch: "0"
+    count/jobs.batch: "0"
+    count/services: "0"
+    count/secrets: "0"
+    pods: "0"
