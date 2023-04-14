@@ -5,5 +5,8 @@ dependencies:
 - name: admission-controller
   repository: ""
   version: ~1
-digest: sha256:ba5af42eed788db6ca8ae16ccdbfaa636c54f9228437902a5b3faed06da16cc2
-generated: "2023-04-13T16:22:52.132444+04:00"
+- name: resource-quota
+  repository: ""
+  version: ~1
+digest: sha256:7718bf36aa7af8ecd8ab1f2218921d162f095968d8e49a19c9d46ce1dcde01c7
+generated: "2023-04-14T19:49:17.364908+04:00"
