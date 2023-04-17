@@ -7,7 +7,7 @@ webhooks:
     clientConfig:
       service:
         name: admission-server
-        namespace: default
+        namespace: admission-controller
         path: "/validate/probes"
       caBundle:  {{ .Values.tls.ca | b64enc }}
     rules:
