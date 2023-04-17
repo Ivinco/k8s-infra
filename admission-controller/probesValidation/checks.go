@@ -30,8 +30,8 @@ func parseObject(object []byte) (*v1.ReplicaSet, error) {
 
 func hasProbes(spec core.PodSpec) bool {
 	for _, container := range spec.Containers {
-		if container.ReadinessProbe == nil || container.LivenessProbe == nil || container.StartupProbe == nil {
-			log.Errorf("Container %s doesn't have probes set", container.Name)
+		if container.LivenessProbe == nil {
+			log.Errorf("Container %s doesn't have Liveness Probe set", container.Name)
 			return false
 		}
 	}

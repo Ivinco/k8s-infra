@@ -14,7 +14,7 @@ webhooks:
       - operations: ["CREATE", "UPDATE"]
         apiGroups: ["apps"]
         apiVersions: ["v1"]
-        resources: ["deployments", "statefulsets", "daemonsets"]
+        resources: ["deployments", "statefulsets"]
     failurePolicy: Fail
     sideEffects: None
     admissionReviewVersions: ["v1"]
