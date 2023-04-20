@@ -8,5 +8,8 @@ dependencies:
 - name: resource-quota
   repository: ""
   version: ~1
-digest: sha256:7718bf36aa7af8ecd8ab1f2218921d162f095968d8e49a19c9d46ce1dcde01c7
-generated: "2023-04-14T19:49:17.364908+04:00"
+- name: limit-range
+  repository: ""
+  version: ~1
+digest: sha256:1dc7a902641c0f3f9975e2aeb6b0f87d1ca314483592a736d8483e5befc99174
+generated: "2023-04-20T14:54:40.788211+04:00"

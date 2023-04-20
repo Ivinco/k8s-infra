@@ -23,3 +23,10 @@ dependencies:
   export-values:
   - parent: werf
     child: werf
+- name: limit-range
+  version: ~1
+  repository: ""
+  condition: limit-range.enabled
+  export-values:
+  - parent: werf
+    child: werf
