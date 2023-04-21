@@ -13,6 +13,7 @@ spec:
       labels:
         app: admission-server
     spec:
+      serviceAccountName: admission-controller
       containers:
       - name: server
         image: {{ .Values.werf.image.admissionServer }}

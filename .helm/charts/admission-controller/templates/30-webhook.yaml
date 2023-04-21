@@ -8,7 +8,7 @@ webhooks:
       service:
         name: admission-server
         namespace: admission-controller
-        path: "/validate/probes"
+        path: "/validate"
       caBundle:  {{ .Values.tls.ca | b64enc }}
     rules:
       - operations: ["CREATE", "UPDATE"]
