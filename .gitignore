@@ -1,1 +1,3 @@
 .werf_secret_key
+.vscode
+.helm/**.tgz

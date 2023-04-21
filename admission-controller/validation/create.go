@@ -1,4 +1,4 @@
-package probesValidation
+package validation
 
 import (
 	"admissioncontroller"

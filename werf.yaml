@@ -1,20 +1,5 @@
 configVersion: 1
-project: ivinco-k8s-infra
-cleanup:
-  keepPolicies:
-  - references:
-      branch: /.*/
-      limit:
-        last: 30
-        in: 72h
-        operator: And
-    imagesPerReference:
-      last: 1
-  - references:
-      branch: /^main$/
-    imagesPerReference:
-      last: 3
-
+project: k8s-infra
 ---
 image: build
 from: golang:1.19-alpine
