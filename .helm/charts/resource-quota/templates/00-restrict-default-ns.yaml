@@ -11,6 +11,4 @@ spec:
     count/daemonsets.apps: "0"
     count/cronjobs.batch: "0"
     count/jobs.batch: "0"
-    count/services: "0"
-    count/secrets: "0"
     pods: "0"
