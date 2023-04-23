@@ -14,7 +14,7 @@ func validateCreate() admissioncontroller.AdmitFunc {
 		}
 
 		if !hasProbes(receivedObject.Spec.Template.Spec) {
-			return &admissioncontroller.Result{Msg: "Created resource doesn't have liveness probe set."}, nil
+			return &admissioncontroller.Result{Msg: "Created resource doesn't have probes set."}, nil
 		}
 
 		if !checkImageLatest(receivedObject.Spec.Template.Spec) {
@@ -34,11 +34,11 @@ func validateUpdate() admissioncontroller.AdmitFunc {
 		}
 
 		if !hasProbes(receivedObject.Spec.Template.Spec) {
-			return &admissioncontroller.Result{Msg: "Updated resource doesn't have liveness probe set."}, nil
+			return &admissioncontroller.Result{Msg: "Updated resource doesn't have probes set."}, nil
 		}
 
 		if !checkImageLatest(receivedObject.Spec.Template.Spec) {
-			return &admissioncontroller.Result{Msg: "Created resource uses \"latest\" tag. That is restricted."}, nil
+			return &admissioncontroller.Result{Msg: "Updated resource uses \"latest\" tag. That is restricted."}, nil
 		}
 
 		return &admissioncontroller.Result{Allowed: true}, nil

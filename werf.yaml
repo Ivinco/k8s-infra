@@ -1,6 +1,23 @@
 configVersion: 1
 project: k8s-infra
-
 ---
 image: networkChecker
 from: busybox:1.32
+---
+image: build-my-image
+from: golang:1.19-alpine
+git:
+- add: /admission-controller
+  to: /app
+shell:
+  install:
+  - cd /app
+  - echo 1
+
+---
+image: admission
+from: golang:1.19-alpine
+import:
+- image: build-my-image
+  after: install
+  add: /app/serverd
