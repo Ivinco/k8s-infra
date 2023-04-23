@@ -11,5 +11,8 @@ dependencies:
 - name: limit-range
   repository: ""
   version: ~1
-digest: sha256:1dc7a902641c0f3f9975e2aeb6b0f87d1ca314483592a736d8483e5befc99174
-generated: "2023-04-20T14:54:40.788211+04:00"
+- name: network-checker
+  repository: ""
+  version: ~1
+digest: sha256:dd9569ea1c622c92c864c7183db2d4c4bdb4b007ecacd04d70e915c69cd4e38f
+generated: "2023-04-23T16:04:45.193547+04:00"
