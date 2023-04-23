@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  concurrencyPolicy: Allow
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            select: {{ .Chart.Name }}
+        spec:
+          containers:
+          - args:
+            - n=0; for i in $(seq 1 10); do wget -qO /dev/null "http://search-admin.k8s-dev.sgdctroy.net/" 2>/dev/null; if [ $? -gt 0 ]; then let n++; fi; done; if [[ $n -gt 0 ]]; then echo "failed $n of 10"; else echo ok; fi
+            command:
+            - /bin/sh
+            - -c
+            image: {{ .Values.werf.image.networkChecker }}
+            imagePullPolicy: IfNotPresent
+            name: backend
+            resources:
+              requests:
+                cpu: "50m"
+                memory: "24Mi"
+              limits:
+                memory: "24Mi"
+            terminationMessagePath: /dev/termination-log
+            terminationMessagePolicy: File
+          dnsPolicy: ClusterFirst
+          restartPolicy: OnFailure
+          terminationGracePeriodSeconds: 30
+  schedule: '* * * * *'
+  successfulJobsHistoryLimit: 3
+  suspend: {{ .Values.suspended }}

@@ -30,3 +30,10 @@ dependencies:
   export-values:
   - parent: werf
     child: werf
+- name: network-checker
+  version: ~1
+  repository: ""
+  condition: network-checker.enabled
+  export-values:
+  - parent: werf
+    child: werf
