@@ -16,7 +16,7 @@ spec:
       serviceAccountName: admission-controller
       containers:
       - name: server
-        image: {{ .Values.werf.image.admissionServer }}
+        image: {{ .Values.werf.image.admission }}
         command:
         - /app/serverd
         imagePullPolicy: Always
