@@ -4,20 +4,29 @@ project: k8s-infra
 image: networkChecker
 from: busybox:1.32
 ---
-image: build-my-image
+image: build
 from: golang:1.19-alpine
 git:
-- add: /admission-controller
+- add: /
   to: /app
+  stageDependencies:
+    install:
+    - "**/*"
+  excludePaths:
+  - ".helm/**"
+  - "werf*.yaml"
+docker:
+  WORKDIR: /app
 shell:
   install:
   - cd /app
-  - echo 1
+  - go mod download
+  - CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"' -o /app/serverd cmd/serverd/main.go
 
 ---
 image: admission
 from: golang:1.19-alpine
 import:
-- image: build-my-image
-  after: install
+- image: build
+  before: install
   add: /app/serverd
