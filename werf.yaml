@@ -7,7 +7,7 @@ from: busybox:1.32
 image: build
 from: golang:1.19-alpine
 git:
-- add: /
+- add: /admission-controller
   to: /app
   stageDependencies:
     install:
