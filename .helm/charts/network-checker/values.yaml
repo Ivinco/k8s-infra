@@ -1,3 +1,10 @@
 enabled: false
 
-suspended: false
+network_checker:
+  suspended: false
+  resources:
+    requests:
+      cpu: "50m"
+      mem: "24Mi"
+    limits:
+      mem: "24Mi"
