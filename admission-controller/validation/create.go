@@ -17,6 +17,10 @@ func validateCreate() admissioncontroller.AdmitFunc {
 			return &admissioncontroller.Result{Msg: "Created resource doesn't have probes set."}, nil
 		}
 
+		if !checkImagePullPolicy(receivedObject.Spec.Template.Spec) {
+			return &admissioncontroller.Result{Msg: "Created resource uses restricted imagePullPolicy."}, nil
+		}
+
 		if !checkImageLatest(receivedObject.Spec.Template.Spec) {
 			return &admissioncontroller.Result{Msg: "Created resource uses \"latest\" tag. That is restricted."}, nil
 		}
@@ -35,6 +39,10 @@ func validateUpdate() admissioncontroller.AdmitFunc {
 
 		if !hasProbes(receivedObject.Spec.Template.Spec) {
 			return &admissioncontroller.Result{Msg: "Updated resource doesn't have probes set."}, nil
+		}
+
+		if !checkImagePullPolicy(receivedObject.Spec.Template.Spec) {
+			return &admissioncontroller.Result{Msg: "Updated resource uses restricted imagePullPolicy."}, nil
 		}
 
 		if !checkImageLatest(receivedObject.Spec.Template.Spec) {
