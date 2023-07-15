@@ -51,4 +51,15 @@ func checkImageLatest(spec core.PodSpec) bool {
 		}
 	}
 	return true
+
+}
+func checkImagePullPolicy(spec core.PodSpec) bool {
+	restrictedImagePolicies := regexp.MustCompile(`Always`)
+	for _, container := range spec.Containers {
+		if restrictedImagePolicies.MatchString(string(container.ImagePullPolicy)) {
+			log.Errorf("Container \"%s\" uses forbidden imagePullPolicy \"%s\". If no imagePullPolicy is set, check image tag. When no tag or \":latest\" tag specified, default imagePullPolicy is set to \"Always\".", container.Name, container.ImagePullPolicy)
+			return false
+		}
+	}
+	return true
 }
