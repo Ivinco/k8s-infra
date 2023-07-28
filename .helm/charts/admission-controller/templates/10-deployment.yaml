@@ -19,7 +19,6 @@ spec:
         image: {{ .Values.werf.image.admission }}
         command:
         - /app/serverd
-        imagePullPolicy: Always
         resources:
           requests:
             memory: {{ .Values.server.resources.requests.mem }}

@@ -5,4 +5,4 @@ trdl add werf https://tuf.werf.io 1 b7ff6bcbe598e072a86d595a3621924c8612c7e6dc6a
 source "$(trdl use werf 1.2 stable)"
 echo ${WERF_REPO_HARBOR_PASSWORD} |  docker login harbor.sgdctroy.net --username admin --password-stdin
 werf version
-werf converge
+werf converge --debug --dev

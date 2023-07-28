@@ -1,3 +1,4 @@
 .werf_secret_key
+.werf_local_envs
 .vscode
 .helm/**.tgz
