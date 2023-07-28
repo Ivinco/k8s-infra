@@ -22,11 +22,11 @@ spec:
             imagePullPolicy: IfNotPresent
             name: backend
             resources:
-          requests:
-            memory: {{ .Values.network_checker.resources.requests.mem }}
-            cpu: {{ .Values.network_checker.resources.requests.cpu }}
-          limits:
-            memory: {{ .Values.network_checker.resources.limits.mem }}
+              requests:
+                memory: {{ .Values.network_checker.resources.requests.mem }}
+                cpu: {{ .Values.network_checker.resources.requests.cpu }}
+              limits:
+                memory: {{ .Values.network_checker.resources.limits.mem }}
             terminationMessagePath: /dev/termination-log
             terminationMessagePolicy: File
           dnsPolicy: ClusterFirst
