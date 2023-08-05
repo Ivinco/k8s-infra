@@ -11,4 +11,3 @@ werf version
 werf cr login -u admin -p ${WERF_REPO_HARBOR_PASSWORD} harbor.sgdctroy.net
 werf render
 werf build
-sleep 1200
