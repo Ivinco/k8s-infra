@@ -3,10 +3,11 @@ project: k8s-infra
 ---
 image: networkChecker
 from: busybox:1.32
+fromCacheVersion: 12
 ---
 image: build
 from: golang:1.19-alpine
-fromCacheVersion: 1
+fromCacheVersion: 12
 git:
 - add: /admission-controller
   to: /app
@@ -27,6 +28,7 @@ shell:
 ---
 image: admission
 from: golang:1.19-alpine
+fromCacheVersion: 12
 import:
 - image: build
   before: install
