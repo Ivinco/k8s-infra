@@ -6,6 +6,7 @@ from: busybox:1.32
 ---
 image: build
 from: golang:1.19-alpine
+fromCacheVersion: 1
 git:
 - add: /admission-controller
   to: /app
