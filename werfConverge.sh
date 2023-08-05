@@ -8,5 +8,5 @@ git --version
 source $("/var/go/bin/trdl" use werf "1.2" "stable")
 werf version
 werf cr login -u admin -p ${WERF_REPO_HARBOR_PASSWORD} harbor.sgdctroy.net
-werf render
+werf render --ignore-secret-key
 werf build
